@@ -1,10 +1,13 @@
 package com.codepath.apps.restclienttemplate.models;
 
+import com.codepath.apps.restclienttemplate.TimeFormatter;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.sql.Array;
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,5 +33,9 @@ public class Tweet {
             tweets.add(fromJson(jsonArray.getJSONObject(i)));
         }
         return tweets;
+    }
+
+    public String getFormattedTimestamp(){
+        return TimeFormatter.getTimeDifference(createdAt);
     }
 }
